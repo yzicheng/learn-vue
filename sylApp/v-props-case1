@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue</title>
+    <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <child-component
+        id="1"
+        title="hello syl"
+        content="you are welcom"
+      ></child-component>
+    </div>
+    <script>
+      //注册一个子组件
+      Vue.component("child-component", {
+        //props 对象形式，传递属性值 进行类型检测，在脚手架环境中很有用
+        props: {
+          id: Number,
+          title: String,
+          content: String,
+        },
+        //使用`` es6模板字符串书写格式更优美
+        template: `<div><p>id:{{id}}</p><p>title:{{title}}</p><p>content:{{content}}</p></div>`,
+      });
+      var app = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

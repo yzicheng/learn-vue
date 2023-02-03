@@ -7,28 +7,24 @@
     <title>syl-vue-test</title>
     <!-- 引入 vue.js -->
     <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
-    <style>
-      .active {
-        color: pink;
-        font-size: 22px;
-      }
-      .red-bg {
-        background: red;
-      }
-    </style>
   </head>
   <body>
     <div id="app">
-      <!-- 数组语法绑定 class 当 isActive 为 true 时，active 就成 span 标签的 class -->
-      <span v-bind:class="{'active':isActive,'red-bg':isRed}">syl</span>
-      <!-- isActive 为true 渲染结果 <span class="active">syl</span> -->
+      <span v-for="number in oddNumber">{{number}}</span>
     </div>
     <script>
       var app = new Vue({
         el: "#app",
         data: {
-          isActive: true,
-          isRed:true
+          numberArray: [1, 2, 3, 4, 5, 6, 7, 8],
+        },
+        computed: {
+          //计算 numberArray 中为奇数的 oddNumber 奇数数组
+          oddNumber: function () {
+            return this.numberArray.filter(function (number) {
+              return number % 2 === 1;
+            });
+          },
         },
       });
     </script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue</title>
+    <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+    </div>
+    <script>
+      //注册一个全局可复用组件
+      Vue.component("button-counter", {
+        //data必须是一个函数不然会影响其他组件
+        data() {
+          return {
+            counter: 0,
+          };
+        },
+        template: '<button @click="counter++">{{counter}}</button>',
+      });
+      var app = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

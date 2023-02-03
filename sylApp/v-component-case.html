@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue</title>
+    <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
+  </head>
+
+  <body>
+    <div id="header">
+      <syl-header></syl-header>
+    </div>
+    <div id="mid">
+      <syl-mid></syl-mid>
+    </div>
+    <script>
+      //头部组件
+      var childComponent = {
+        template: "<h2>我是实验楼局部组件header，只有我们父级才能调用</h2>",
+      };
+      //中间部分组件
+      var childComponent2 = {
+        template: "<h2>我是实验楼局部组件mid，只有我们父级才能调用</h2>",
+      };
+      //header vm
+      var header = new Vue({
+        el: "#header",
+        //子组件必须声明后使用，不然不能起效
+        components: {
+          "syl-header": childComponent,
+        },
+      });
+      var mid = new Vue({
+        el: "#mid",
+        //子组件必须声明后使用，不然不能起效
+        components: {
+          "syl-mid": childComponent2,
+        },
+      });
+    </script>
+  </body>
+</html>

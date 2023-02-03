@@ -19,16 +19,16 @@
   </head>
   <body>
     <div id="app">
-      <!-- 数组语法绑定 class 当 isActive 为 true 时，active 就成 span 标签的 class -->
-      <span v-bind:class="{'active':isActive,'red-bg':isRed}">syl</span>
-      <!-- isActive 为true 渲染结果 <span class="active">syl</span> -->
+      <!-- 数组语法绑定 class -->
+      <span v-bind:class="[activeClass,bgColorClass]">syl</span>
+      <!-- 渲染后 <span class="active red-bg">syl</span> -->
     </div>
     <script>
       var app = new Vue({
         el: "#app",
         data: {
-          isActive: true,
-          isRed:true
+          activeClass: "active",
+          bgColorClass: "red-bg",
         },
       });
     </script>

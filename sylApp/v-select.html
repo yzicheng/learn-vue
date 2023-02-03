@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue</title>
+    <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 当选中第一个选项时，`selected` 为字符串 "abc" -->
+      <select v-model="selected">
+        <!-- 固定赋值value -->
+        <option value="abc">ABC</option>
+        <!-- 使用 v-bind 绑定值 -->
+        <option :value="optionValue">DEF</option>
+      </select>
+      <p>{{selected}}</p>
+    </div>
+    <script>
+      var vue = new Vue({
+        el: "#app",
+        data() {
+          return {
+            selected: "",
+            //第二个option 的值
+            optionValue: "efg",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
